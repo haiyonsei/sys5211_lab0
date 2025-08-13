@@ -13,7 +13,11 @@ chmod +x coursier
     sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION \
     --sources --default=true \
     -o almond
-./almond --install
+./almond --install --predef-code '
+import $ivy.`edu.berkeley.cs::chisel3:3.5.6`
+import $ivy.`edu.berkeley.cs::chiseltest:0.5.6`
+import chisel3._
+'
 
 rm almond
 rm coursier
