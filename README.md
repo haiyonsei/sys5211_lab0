@@ -108,5 +108,5 @@ This will output several URLs in your terminal. Copy one of the http://localhost
 Lab problems are borrowed from https://github.com/agile-hw/labs/tree/main.
 
 # References
-https://github.com/agile-hw/lectures
-https://github.com/freechipsproject/chisel-bootcamp/
+- https://github.com/agile-hw/lectures
+- https://github.com/freechipsproject/chisel-bootcamp/
