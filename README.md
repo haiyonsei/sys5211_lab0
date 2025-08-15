@@ -99,6 +99,20 @@ This will output several URLs in your terminal. Copy one of the http://localhost
 
 ## For Mac OS (Terminal)
 
+For macOS, using the Homebrew package manager is the highly recommended way to install these tools. Also, you can use conda environment if you want.
+
+```
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+```
+
+### Install Prerequisites (JDK8, Python, Git)
+
+https://adoptium.net/temurin/releases
+
+```
+brew install python git
+```
+
 Download jupyter and jupyterlab.
 
 ```
@@ -111,7 +125,7 @@ Next, download coursier and use it to install almond
 
 ```
 curl -L -o coursier https://git.io/coursier-cli && chmod +x coursier
-SCALA_VERSION=2.12.15 ALMOND_VERSION=0.9.1
+SCALA_VERSION=2.12.10 ALMOND_VERSION=0.9.1
 ./coursier bootstrap -r jitpack \
     -i user -I user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION \
     sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION \
