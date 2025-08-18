@@ -39,7 +39,7 @@ With the prerequisites installed, you can now set up the Jupyter environment.
 
 ### 2.1. Install Jupyter Lab and Notebook
 
-Open a new Command Prompt (cmd in administrator mode) and run the following command:
+Open a new CMD in administrator mode (NOT Powershell) and run the following command:
 
 ```
 pip3 install jupyterlab
@@ -63,7 +63,7 @@ move cs-x86_64-pc-win32.exe cs.exe
 .\cs setup
 ```
 
-Restart your terminal. It is crucial to close and reopen your Command Prompt window for the changes to take effect.
+Then, Restart your terminal!!! It is crucial to close and reopen your Command Prompt window for the changes to take effect.
 
 Install the Almond Kernel: In the new terminal window, run this command to install the Scala kernel for Jupyter.
 
@@ -132,6 +132,12 @@ SCALA_VERSION=2.12.10 ALMOND_VERSION=0.9.1
     --sources --default=true \
     -o almond
 ./almond --install
+```
+
+Change the version from 2.12.10 to 2.12.15.
+
+```
+coursier launch almond --scala 2.12.15 -- --install --id scala-2.12.15 --display-name "Scala (2.12.15)"
 ```
 
 Clone the git repository and run the jupyter notebook
