@@ -124,14 +124,19 @@ pip3 install jupyterlab
 Next, download coursier and use it to install almond
 
 ```
-curl -L -o coursier https://git.io/coursier-cli && chmod +x coursier
-SCALA_VERSION=2.12.10 ALMOND_VERSION=0.9.1
-./coursier bootstrap -r jitpack \
+curl -L -o coursier <https://git.io/coursier-cli> && chmod +x coursier
+SCALA_VERSION=2.12.15 ALMOND_VERSION=0.13.1
+./coursier bootstrap \
+    -r jitpack \
     -i user -I user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION \
     sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION \
     --sources --default=true \
     -o almond
-./almond --install
+./almond --install --predef-code '
+import $ivy.`edu.berkeley.cs::chisel3:3.5.3`
+import $ivy.`edu.berkeley.cs::chiseltest:0.5.3`
+import chisel3._
+'
 ```
 
 Change the version from 2.12.10 to 2.12.15.
