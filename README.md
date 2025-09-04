@@ -19,7 +19,7 @@ This process uses PowerShell to automate all installation steps.
 
 ### 1. Download the Script
 
-Download the setup-win.ps1 script file and place it in your desired project directory (e.g., C:\Users\YourUser\Projects).
+Download the setup-win.ps1 script file from github and place it in your desired project directory (e.g., C:\Users\YourUser\Projects).
 
 ### 2. Run PowerShell as an Administrator
 
@@ -58,7 +58,7 @@ This process uses the Terminal and Homebrew to automate all installation steps. 
 
 ### 1. Download the Script
 
-Download the setup-mac.sh script file and place it in your desired project directory (e.g., ~/Projects).
+Download the setup-mac.sh script file from github and place it in your desired project directory (e.g., ~/Projects).
 
 ### 2. Open the Terminal
 
