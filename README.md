@@ -4,6 +4,8 @@ You can play with Scala/Chisel on the cloud right away using Binder. Binder is a
 
 https://mybinder.org/v2/gh/haiyonsei/sys5211_lab0/HEAD
 
+<br>
+
 # Chisel Bootcamp Local Installation Guide
 
 When using Jupyter Notebook in the online Binder environment, your work may be lost after about 10 minutes of inactivity. To avoid this, you can install the development environment locally on your computer by following the guide below.
@@ -105,11 +107,11 @@ If a browser window does not open automatically, copy one of the URLs from the t
 
 <br>
 
-# Acknowledgement
+## Acknowledgement
 
 Lab problems are borrowed from https://github.com/agile-hw/labs/tree/main.
 
-# References
+## References
 
 - https://github.com/agile-hw/lectures
 - https://github.com/freechipsproject/chisel-bootcamp/
