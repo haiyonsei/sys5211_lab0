@@ -4,153 +4,106 @@ You can play with Scala/Chisel on the cloud right away using Binder. Binder is a
 
 https://mybinder.org/v2/gh/haiyonsei/sys5211_lab0/HEAD
 
-# Local Installation (Windows)
+# Chisel Bootcamp Local Installation Guide
 
-Binder will discard any work after about 10 minutes of idle time. So if you don't want this, you can install the environment locally on your Windows machine by following the steps below.
+When using Jupyter Notebook in the online Binder environment, your work may be lost after about 10 minutes of inactivity. To avoid this, you can install the development environment locally on your computer by following the guide below.
 
-## Step 1: Install Prerequisites
+We provide automated setup scripts for each operating system (setup-win.ps1 and setup-mac.sh). Running a single script will automatically install all prerequisites, including Java, Python, and Git, and configure the Scala kernel for you.
 
-These are the basic tools required before setting up the bootcamp.
+<br>
 
-### 1.1. Java Development Kit (JDK) 8
+## Windows Installation
+This process uses PowerShell to automate all installation steps.
 
-Download and install JDK 8 from the Adoptium (Eclipse Temurin) site.
+### 1. Download the Script
 
-https://adoptium.net/temurin/releases
+Download the setup-win.ps1 script file and place it in your desired project directory (e.g., C:\Users\YourUser\Projects).
 
-### 1.2. Python 3
+### 2. Run PowerShell as an Administrator
 
-Python is required to run JupyterLab.
-Download and install the latest version of Python from
+Open the Start Menu, search for PowerShell, right-click on it, and select "Run as administrator".
 
-https://www.python.org/
+### 3. Navigate to Your Project Directory
 
-During installation, make sure to check the box for "Add Python to PATH".
-
-### 1.3. Git
-
-Git is needed to download (clone) the source code.
-
-https://github.com/git-for-windows/git/releases/download/v2.50.1.windows.1/Git-2.50.1-64-bit.exe
-
-## Step 2: Install Jupyter and the Scala Kernel
-
-With the prerequisites installed, you can now set up the Jupyter environment.
-
-### 2.1. Install Jupyter Lab and Notebook
-
-Open a new CMD in administrator mode (NOT Powershell) and run the following command:
+In the PowerShell window, use the cd command to navigate to the folder where you saved the script.
 
 ```
-pip3 install jupyterlab
-pip3 install notebook
+cd C:\Users\YourUser\Projects
 ```
 
-### 2.2. Install the Scala Kernel (Almond)
+### 4. Change the Execution Policy (for the current session)
 
-This installs the "translator" that allows Jupyter to run Scala code, using a tool called Coursier (cs.exe).
-Download and Unzip Coursier:
-
-```
-curl -fLo cs-x86_64-pc-win32.zip https://github.com/coursier/launchers/raw/master/cs-x86_64-pc-win32.zip
-tar -xf cs-x86_64-pc-win32.zip
-```
-
-Set up Coursier: This command registers Coursier on your system.
+By default, PowerShell's security policy may block scripts from running. To allow it for the current session, enter the following command:
 
 ```
-move cs-x86_64-pc-win32.exe cs.exe
-.\cs setup
+Set-ExecutionPolicy Unrestricted -Scope Process
 ```
 
-Then, Restart your terminal!!! It is crucial to close and reopen your Command Prompt window for the changes to take effect.
+### 5. Run the Automated Setup Script
 
-Install the Almond Kernel: In the new terminal window, run this command to install the Scala kernel for Jupyter.
-
-```
-.\cs launch almond --scala 2.12.15 -- --install
-```
-
-A success message like Installed scala kernel under ... should appear.
-
-## Step 3: Set Up the Lab environment
-
-### 3.1. Clone the git Repository
-
-Navigate to the directory where you want to store the lab files and run:
+Enter the following command to begin the installation:
 
 ```
-git clone https://github.com/haiyonsei/sys5211_lab0
+.\setup-win.ps1
 ```
 
-## Step 4: Run the Jupyter notebook 🚀
+The script will handle all installations and configurations automatically. Once finished, it will provide instructions on how to launch Jupyter Notebook.
 
-You are all set!
+<br>
 
-Make sure you are in the sys5211_lab0 directory in your Command Prompt.
+## macOS Installation
+This process uses the Terminal and Homebrew to automate all installation steps. (If you don't have Homebrew, the script will install it for you.)
 
-Run the following command to start the server:
+### 1. Download the Script
+
+Download the setup-mac.sh script file and place it in your desired project directory (e.g., ~/Projects).
+
+### 2. Open the Terminal
+
+Open Spotlight (Cmd+Space), search for Terminal, and open the application.
+
+### 3. Navigate to Your Project Directory
+
+In the Terminal window, use the cd command to navigate to the folder where you saved the script.
 
 ```
+cd ~/Projects
+```
+
+### 4. Make the Script Executable
+
+You need to grant the script permission to run. Enter the following command (you only need to do this once):
+
+```
+chmod +x setup-mac.sh
+```
+
+### 5. Run the Automated Setup Script
+
+Enter the following command to begin the installation:
+
+```
+./setup-mac.sh
+```
+
+The script will handle all installations and configurations automatically. Once finished, it will provide instructions on how to launch Jupyter Notebook.
+
+<br>
+
+## Running the Lab
+After the installation is complete, you can start Jupyter Notebook by following the final instructions provided by the script:
+
+```
+# 1. Navigate to the newly created lab folder
+cd sys5211_lab0
+
+# 2. Run Jupyter Notebook
 jupyter notebook
 ```
 
-This will output several URLs in your terminal. Copy one of the http://localhost:8888/... URLs and paste it into your web browser to start the Chisel Assignment.
+If a browser window does not open automatically, copy one of the URLs from the terminal (it will start with http://localhost:8888/...) and paste it into your web browser's address bar.
 
-## For Mac OS (Terminal)
-
-For macOS, using the Homebrew package manager is the highly recommended way to install these tools. Also, you can use conda environment if you want.
-
-```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-```
-
-### Install Prerequisites (JDK8, Python, Git)
-
-https://adoptium.net/temurin/releases
-
-```
-brew install python git
-```
-
-Download jupyter and jupyterlab.
-
-```
-pip3 install --upgrade pip
-pip3 install jupyter --ignore-installed
-pip3 install jupyterlab
-```
-
-Next, download coursier and use it to install almond
-
-```
-curl -L -o coursier <https://git.io/coursier-cli> && chmod +x coursier
-SCALA_VERSION=2.12.15 ALMOND_VERSION=0.13.1
-./coursier bootstrap \
-    -r jitpack \
-    -i user -I user:sh.almond:scala-kernel-api_$SCALA_VERSION:$ALMOND_VERSION \
-    sh.almond:scala-kernel_$SCALA_VERSION:$ALMOND_VERSION \
-    --sources --default=true \
-    -o almond
-./almond --install --predef-code '
-import $ivy.`edu.berkeley.cs::chisel3:3.5.3`
-import $ivy.`edu.berkeley.cs::chiseltest:0.5.3`
-import chisel3._
-'
-```
-
-Change the version from 2.12.10 to 2.12.15.
-
-```
-coursier launch almond --scala 2.12.15 -- --install --id scala-2.12.15 --display-name "Scala (2.12.15)"
-```
-
-Clone the git repository and run the jupyter notebook
-
-```
-git clone https://github.com/haiyonsei/sys5211_lab0
-jupyter notebook
-```
+<br>
 
 # Acknowledgement
 
