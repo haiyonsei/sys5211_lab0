@@ -68,11 +68,7 @@ Then, Restart your terminal!!! It is crucial to close and reopen your Command Pr
 Install the Almond Kernel: In the new terminal window, run this command to install the Scala kernel for Jupyter.
 
 ```
-.\cs launch almond --scala 2.12.15 -- --install --predef-code '
-import $ivy.`edu.berkeley.cs::chisel3:3.5.3`
-import $ivy.`edu.berkeley.cs::chiseltest:0.5.3`
-import chisel3._
-'
+.\cs launch almond --scala 2.12.15 -- --install --predef-code 'import $ivy.`edu.berkeley.cs::chisel3:3.5.3` import $ivy.`edu.berkeley.cs::chiseltest:0.5.3` import chisel3._'
 ```
 
 A success message like Installed scala kernel under ... should appear.
