@@ -107,6 +107,18 @@ If a browser window does not open automatically, copy one of the URLs from the t
 
 <br>
 
+## Issues
+
+If you encounter issues importing "chisel3._", please add the following line before "import chisel3._"
+
+```
+"import $ivy.`edu.berkeley.cs::chisel3:3.5.3`\n",
+"import $plugin.$ivy.`edu.berkeley.cs:::chisel3-plugin:3.5.3`\n",
+"import $ivy.`edu.berkeley.cs::chiseltest:0.5.3`\n",
+```
+
+<br>
+
 ## Acknowledgement
 
 Lab problems are borrowed from https://github.com/agile-hw/labs/tree/main.
