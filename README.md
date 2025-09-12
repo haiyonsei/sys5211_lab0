@@ -15,7 +15,7 @@ We provide automated setup scripts for each operating system (setup-win.ps1 and 
 <br>
 
 ## Windows Installation
-This process uses PowerShell to automate all installation steps.
+This process uses PowerShell to automate all installation steps. (You can use Conda environment)
 
 ### 1. Download the Script
 
